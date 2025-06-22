@@ -22,6 +22,18 @@ class c():
         self.y-=10
         self.pos=(self.x,self.y)
         pygame.draw.circle(self.surf,self.color,self.pos,self.r)
+    def moveleft(self):
+        self.x-=10
+        self.pos=(self.x,self.y)
+        pygame.draw.circle(self.surf,self.color,self.pos,self.r)
+    def moveright(self):
+        self.x+=10
+        self.pos=(self.x,self.y)
+        pygame.draw.circle(self.surf,self.color,self.pos,self.r)
+    def movedown(self):
+        self.y+=10
+        self.pos=(self.x,self.y)
+        pygame.draw.circle(self.surf,self.color,self.pos,self.r)
         
 
 
@@ -47,5 +59,17 @@ while run:
             if event.key==pygame.K_UP:
                 screen.fill("blue")
                 circl.moveup()
+        if event.type == pygame.KEYDOWN:
+            if event.key==pygame.K_LEFT:
+                screen.fill("red")
+                circl.moveleft()
+        if event.type == pygame.KEYDOWN:
+            if event.key==pygame.K_RIGHT:
+                screen.fill("green")
+                circl.moveright()
+        if event.type == pygame.KEYDOWN:
+            if event.key==pygame.K_DOWN:
+                screen.fill("orange")
+                circl.movedown()
             
         pygame.display.update()
